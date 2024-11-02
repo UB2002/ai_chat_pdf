@@ -22,9 +22,9 @@ source venv/bin/activate
 ```
 
 install the required packages to run the backend server
-```bash
-   pip install -r requirements.txt
-   //run this command to install required libraries
+```
+pip install -r requirements.txt
+//run this command to install required libraries
 ```
 
 
