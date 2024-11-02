@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { Box, Button, TextField, Typography, Snackbar } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import axios from 'axios';
+import logo from './logo.png';
+import SendIcon from '@mui/icons-material/Send';
 
 // FileUpload Component
 const FileUpload = ({ onUpload }) => {
@@ -86,26 +88,59 @@ function App() {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: '#333' }}>
-      {/* Fixed Top Bar */}
-      <Box sx={{ height: '60px', backgroundColor: '#1d1d1d', padding: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Typography variant="h6" color="white">planet</Typography>
-        <FileUpload onUpload={handleUploadMessage} />
-      </Box>
+    
+    
 
-      {/* Scrollable Content Area */}
-      <Box sx={{ flex: 1, overflowY: 'auto', padding: 2 }}>
-        <Typography variant="body1" color="primary" sx={{ marginBottom: 2 }}>Questions and Answers:</Typography>
-        {qaPairs.map((pair, index) => (
-          <Box key={index} sx={{ marginBottom: 2 }}>
-            <Typography variant="body2" color="secondary">Q: {pair.question}</Typography>
-            <Typography variant="body2" color="primary">A: {pair.answer}</Typography>
-          </Box>
-        ))}
-      </Box>
+    // <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: '#333' }}>
+    //   {/* Fixed Top Bar */}
+    //   <Box sx={{ height: '60px', backgroundColor: 'white', padding: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    //   <img src={logo} alt="Logo" style={{ height: '40px' }} 
+      
+    //   />
+    //     <Typography variant="h6" color="black">planet</Typography>
+    //     <FileUpload onUpload={handleUploadMessage} />
+    //   </Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: '#333' }}>
+    {/* Fixed Top Bar */}
+    <Box sx={{ height: '40px', backgroundColor: 'white', padding: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' ,boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.3)', zIndex: 1}}>
+      {/* Flex container for logo and title */}
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <img src={logo} alt="Logo" style={{ height: '40px', marginRight: '8px' }} /> {/* Add margin for spacing */}
+        <Typography variant="h6" color="black">planet</Typography>
+    </Box>
+      
+      {/* File Upload Button */}
+      <FileUpload onUpload={handleUploadMessage} />
+    </Box>
+       
+{/* Content Area */}
+<Box sx={{ backgroundColor: 'white', flex: 1, overflowY: 'auto', padding: 2 }}>
+  <Typography variant="h5" color="black" sx={{ marginBottom: 3, fontWeight: 'bold' }}>
+  </Typography>
+  {qaPairs.map((pair, index) => (
+    <Box
+      key={index}
+      sx={{
+        marginBottom: 3,
+        padding: 2,
+      }}
+    >
+      <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+        Q: {pair.question}
+      </Typography>
+      <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', marginTop: 1 }}>
+        <img src={logo} alt="Logo" style={{ height: '25px', marginRight: '8px' }} />
+        {pair.answer}
+      </Typography>
+    </Box>
+  ))}
+</Box>
+
+      
 
       {/* Fixed Input Box */}
-      <Box sx={{ padding: 2, backgroundColor: '#fff', display: 'flex', alignItems: 'center' }}>
+      <Box sx={{background: 'white'}}>
+        <Box sx={{ padding: 2, backgroundColor: 'white', display: 'flex', alignItems: 'center', marginBottom:'10px'}}>
         <TextField
           fullWidth
           placeholder="Ask a question..."
@@ -113,8 +148,21 @@ function App() {
           size="small"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
+
+          InputProps={{
+            endAdornment: (
+              <Button
+              sx={{ color: 'black', justifyContent: 'right'}}
+              startIcon={<SendIcon />}
+                onClick={handleAsk}
+              />
+            ),
+          }}
+
+          
+         
         />
-        <Button variant="contained" sx={{ marginLeft: 1 }} onClick={handleAsk}>Send</Button>
+        </Box>
       </Box>
 
       {/* Snackbar for Success Messages */}
