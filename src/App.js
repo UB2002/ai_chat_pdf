@@ -129,7 +129,7 @@ function App() {
         Q: {pair.question}
       </Typography>
       <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', marginTop: 1 }}>
-        <img src={logo} alt="Logo" style={{ height: '25px', marginRight: '8px' }} />
+        //<img src={logo} alt="Logo" style={{ height: '25px', marginRight: '8px' }} />
         {pair.answer}
       </Typography>
     </Box>
