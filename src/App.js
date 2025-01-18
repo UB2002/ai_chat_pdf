@@ -105,8 +105,8 @@ function App() {
     <Box sx={{ height: '40px', backgroundColor: 'white', padding: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' ,boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.3)', zIndex: 1}}>
       {/* Flex container for logo and title */}
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <img src={logo} alt="Logo" style={{ height: '40px', marginRight: '8px' }} /> {/* Add margin for spacing */}
-        <Typography variant="h6" color="black">planet</Typography>
+        //<img src={logo} alt="Logo" style={{ height: '40px', marginRight: '8px' }} /> {/* Add margin for spacing */}
+        //<Typography variant="h6" color="black">planet</Typography>
     </Box>
       
       {/* File Upload Button */}
