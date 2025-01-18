@@ -47,7 +47,7 @@ function App() {
     const formData = new FormData();
     formData.append('file', file);
 
-    axios.post('http://127.0.0.1:8000/upload/', formData, {
+    axios.post('https://ai-chat-pdf-test.onrender.com/upload/', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -69,7 +69,7 @@ function App() {
     }
 
     try {
-      const res = await axios.post('http://127.0.0.1:8000/ask/', { question }, {
+      const res = await axios.post('https://ai-chat-pdf-test.onrender.com/ask/', { question }, {
         headers: {
           'Content-Type': 'application/json',
         },
